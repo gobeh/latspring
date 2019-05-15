@@ -5,4 +5,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface PesertaDao extends PagingAndSortingRepository<Peserta, String>{
 
+
 }
