@@ -62,7 +62,7 @@ public class PesertaDaoTest {
    @Test
    public void tesHitung(){
        Long hitung = pd.count();
-       Assert.assertEquals(4L,hitung.longValue());
+       Assert.assertEquals(3L,hitung.longValue());
    }
    @After
    public void hapusData() throws Exception {
