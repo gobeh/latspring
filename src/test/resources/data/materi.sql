@@ -1,4 +1,5 @@
 delete from m_materi;
+delete from peserta_pelatihan;
 
 insert into m_materi(id,kode,nama)
 values ('aa6','JF-001','Java Fundamental');
