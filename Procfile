@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -Dspring.profiles.active=heroku -jar target/latspring-0.0.1-SNAPSHOT.jar
+web: java -Dserver.port=$PORT -jar target/latspring-0.0.1-SNAPSHOT.jar
