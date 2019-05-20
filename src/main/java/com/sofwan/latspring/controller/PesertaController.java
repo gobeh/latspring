@@ -13,6 +13,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api")
 public class PesertaController {
     @Autowired
     private PesertaDao pd;

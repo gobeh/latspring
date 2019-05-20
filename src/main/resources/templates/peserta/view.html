@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lihat Peserta</title>
+</head>
+<body>
+    <h1>Lihat Peserta
+    </h1>
+
+        <table>
+            <tbody>
+            <tr>
+                <td>Nama:</td>
+                <td th:text="${nama}"> </td>
+
+            </tr>
+
+            <tr>
+                <td>Email:</td>
+                <td th:text="${email}"></td>
+
+            </tr>
+            <tr>
+                <td>Tanggal Lahir:</td>
+                <td th:text="${tanggalLahir}"></td>
+            </tr>
+
+            </tbody>
+        </table>
+
+</body>
+</html>
