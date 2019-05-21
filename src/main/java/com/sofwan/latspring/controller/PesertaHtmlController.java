@@ -10,7 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.Option;
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -40,7 +39,7 @@ public class PesertaHtmlController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/form", params = "id", method = RequestMethod.GET)
+    @RequestMapping(value="/form")
     public String tampilkanForm(@RequestParam(value = "id", required = false) String id, Model m){
         //default value untuk m
         m.addAttribute("peserta", new Peserta());

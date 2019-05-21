@@ -7,12 +7,13 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import javax.sql.DataSource;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Configuration
 @EnableWebSecurity
-public class KonfigSecurity extends WebSecurityConfigurerAdapter {
+public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter {
 
     private static final String SQL_LOGIN
             = "select username, password, active as enabled "
@@ -44,6 +45,9 @@ public class KonfigSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers("/halo").hasAnyRole("ADMIN", "STAF")
+                .antMatchers("/peserta/form").hasRole("ADMIN")
+                .antMatchers("/peserta/list").hasAnyRole("ADMIN", "STAF")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

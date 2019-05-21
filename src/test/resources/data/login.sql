@@ -35,9 +35,6 @@ insert into s_users_roles(id_users, id_roles)
 values ('u001','adm');
 
 insert into s_users_roles(id_users, id_roles)
-values ('u001','stf')
-
-insert into s_users_roles(id_users, id_roles)
 values ('u002','stf');
 
 select username, password, active as enabled from s_users where username='sofwan';
