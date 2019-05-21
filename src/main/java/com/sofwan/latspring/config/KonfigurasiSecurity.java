@@ -7,9 +7,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import javax.sql.DataSource;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -55,6 +57,9 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .defaultSuccessUrl("/halo", false)
                 .and()
-                .logout();
+                .logout()
+                .and()
+                .addFilterAfter(new CsrfAttributeToCookieFilter(), CsrfFilter.class)
+                .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }
 }

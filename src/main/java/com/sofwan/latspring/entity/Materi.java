@@ -1,5 +1,6 @@
 package com.sofwan.latspring.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Materi {
     @Column(nullable = false)
     private String nama;
 
+    @JsonIgnore
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true,

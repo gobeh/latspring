@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Daftar Materi</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body ng-app="aplikasiPelatihan">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+                <script src="/js/pelatihan.js"></script>
+        <h1>Daftar Materi</h1>
+        <div ng-controller="HaloController">
+        Email anda: <input type="text" ng-model="email" placeholder="Masukkan email" />
+        <button ng-click="tambahEmail()">Tambahkan</button>
+        <h2>Halo: {{email}}</h2>
+        <br/>
+        Daftar Email
+        
+            <ul>
+                <li ng-repeat="e in daftarEmail">{{e}}
+                    <button ng-click="hapusEmail(e)">Hapus</button></li>
+                
+
+            </ul>
+        </div>
+        
+        <div ng-controller="MateriController">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Kode</th>
+                        <th>Nama</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="m in daftarMateri.content">
+                        <th>{{m.kode}}</th>
+                        <th>{{m.nama}}</th>
+                        <th><button ng-click="hapusMateri(m)">Hapus</button></th>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </body>
+</html>
