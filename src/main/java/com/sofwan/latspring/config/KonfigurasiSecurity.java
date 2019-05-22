@@ -61,5 +61,6 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter {
                 .and()
                 .addFilterAfter(new CsrfAttributeToCookieFilter(), CsrfFilter.class)
                 .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+                //.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }
 }
