@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="materi" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8f757deb-c83a-4f51-b379-7283ff77b4e3">
+	<parameter name="tanggalUpdate" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="kode" class="java.lang.String"/>
+	<field name="nama" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="89" splitType="Stretch">
+			<staticText>
+				<reportElement x="220" y="24" width="99" height="30" uuid="5421c519-184e-4b24-a4f4-c30edb484beb"/>
+				<text><![CDATA[Daftar Materi]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="340" y="0" width="100" height="30" uuid="9dba8383-2cbf-4f56-91b9-1b28d936f5ae"/>
+				<text><![CDATA[Tanggal Update]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="440" y="0" width="100" height="30" uuid="c2c3130b-aeca-4974-8b2c-e1ff4b74ac8e"/>
+				<textFieldExpression><![CDATA[$P{tanggalUpdate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="90" y="0" width="100" height="30" uuid="391170e3-a5f3-4a7c-a327-da8024d0e95c"/>
+				<text><![CDATA[Kode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="0" width="100" height="30" uuid="623ed3a7-f67c-443a-be0b-21ac3d4dc0ca"/>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="90" y="0" width="100" height="30" uuid="757edfda-2a3d-4048-a85b-60ca8fbc711c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="09f0b4d0-c873-4852-b3eb-3e1b103506c2"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{kode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="100" height="30" uuid="6cdf0e3a-819d-4a7c-a479-b993a8141115">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="30fd4be3-5e53-465d-aa7f-3491001fe48f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="300" y="25" width="60" height="30" uuid="4ad6c834-d034-4295-b43e-9ee6379f28ec"/>
+				<text><![CDATA[Halaman ke]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="25" width="20" height="30" uuid="f14515ac-a063-4832-91b3-4fc5c3668132"/>
+				<text><![CDATA[dari]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="25" width="60" height="30" uuid="8f323a8e-c4e2-4e3e-af0a-6413213c7bdf"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="25" width="60" height="30" uuid="c5a06c51-0d0a-4ab0-976c-2fa187396fcf"/>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
