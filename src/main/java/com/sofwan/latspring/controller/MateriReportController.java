@@ -51,7 +51,6 @@ public class MateriReportController {
         try {
             // 1. Datasource untuk ditampilkan di band detail
             JRBeanCollectionDataSource dataMateri = new JRBeanCollectionDataSource(md.semuaMateri());
-            JRBeanCollectionDataSource dataMateri2 = new JRBeanCollectionDataSource(md.semuaMateri());
 
             // 2. Parameter report
             Map<String, Object> params = new HashMap<>();
@@ -60,9 +59,6 @@ public class MateriReportController {
             // 3. Merge template dengan data
             JasperPrint jrPrint = JasperFillManager
                     .fillReport(getReport(), params, dataMateri);
-
-            JasperPrint jrPrint2 = JasperFillManager
-                    .fillReport(getReport(), params, dataMateri2);
 
             // 4. Render PDF default
             if (format != null && !format.isEmpty()) {
@@ -74,7 +70,7 @@ public class MateriReportController {
                         + "." + format);
 
                 JRXlsExporter exporter = new JRXlsExporter();
-                exporter.setExporterInput(new SimpleExporterInput(jrPrint2));
+                exporter.setExporterInput(new SimpleExporterInput(jrPrint));
                 try {
                     exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(response.getOutputStream()));
                 } catch (IOException ex) {
