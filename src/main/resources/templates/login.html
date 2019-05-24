@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <meta charset="ISO-8859-1" />
+        <meta charset="UTF-8">
         <title>Login</title>
     </head>
     <body>
         <div th:fragment="content">
-            <br />
-            <br />
-            <br />
             <form name="f" th:action="@{/login}" method="POST">
                 <div th:if="${param.error}" class="class alert-error" >
-                    Invalid username and password
+                    Kesalahan username dan password
                 </div>
-                <div th:if="${param.logout}" class="class alert-success"></div>
-                Silahkan Login
+                <div th:if="${param.logout}" class="class alert-success">Logout berhasil</div>
+
                 <table>
                     <tr>
                         <td>Username:</td>

@@ -4,11 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body ng-app="aplikasiPelatihan">
-        <div th:fragment="content">
+    <div th:fragment="content">
+    <body data-ng-app="aplikasiPelatihan">
+        
 
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-            <script src="/js/pelatihan.js"></script>
+            <script th:src="@{/js/angular.min.js}"></script>
+            <script th:src="@{/js/pelatihan.js}"></script>
             <h1>Daftar Materi</h1>
             <div ng-controller="HaloController">
                 Email anda: <input type="text" ng-model="email" placeholder="Masukkan email" />
@@ -62,7 +63,7 @@
                 </table>
 
             </div>
-        </div>
+    </div>
 
     </body>
 </html>
