@@ -5,28 +5,33 @@
         <title>Login</title>
     </head>
     <body>
-        <form name="f" th:action="@{/login}" method="POST">
-            <div th:if="${param.error}" class="class alert-error" >
-                Invalid username and password
-            </div>
-            <div th:if="${param.logout}" class="class alert-success"></div>
-                Sudah logout
-            <table>
-                <tr>
-                    <td>Username:</td>
-                    <td><input type="text" name="username"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="password" name="password" /></td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td><input type="submit" value="Login" /></td>
-                </tr>
-            </table>
-        </form>
+        <div th:fragment="content">
+            <br />
+            <br />
+            <br />
+            <form name="f" th:action="@{/login}" method="POST">
+                <div th:if="${param.error}" class="class alert-error" >
+                    Invalid username and password
+                </div>
+                <div th:if="${param.logout}" class="class alert-success"></div>
+                Silahkan Login
+                <table>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text" name="username"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" name="password" /></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><input type="submit" value="Login" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </body>
 
 </html>

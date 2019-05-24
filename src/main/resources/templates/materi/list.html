@@ -5,63 +5,64 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body ng-app="aplikasiPelatihan">
+        <div th:fragment="content">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-        <script src="/js/pelatihan.js"></script>
-        <h1>Daftar Materi</h1>
-        <div ng-controller="HaloController">
-            Email anda: <input type="text" ng-model="email" placeholder="Masukkan email" />
-            <button ng-click="tambahEmail()">Tambahkan</button>
-            <h2>Halo: {{email}}</h2>
-            <br/>
-            Daftar Email
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+            <script src="/js/pelatihan.js"></script>
+            <h1>Daftar Materi</h1>
+            <div ng-controller="HaloController">
+                Email anda: <input type="text" ng-model="email" placeholder="Masukkan email" />
+                <button ng-click="tambahEmail()">Tambahkan</button>
+                <h2>Halo: {{email}}</h2>
+                <br/>
+                Daftar Email
 
-            <ul>
-                <li ng-repeat="e in daftarEmail">{{e}}
-                    <button ng-click="hapusEmail(e)">Hapus</button></li>
+                <ul>
+                    <li ng-repeat="e in daftarEmail">{{e}}
+                        <button ng-click="hapusEmail(e)">Hapus</button></li>
 
 
-            </ul>
+                </ul>
+            </div>
+
+            <div ng-controller="MateriController">
+                <table border="1">
+                    <tbody>
+                        <tr>
+                            <td>Kode Materi :</td>
+                            <td><input type="text" ng-model="materi.kode" required="true" /></td>
+                        </tr>
+                        <tr>
+                            <td>Nama Materi</td>
+                            <td><input type="text" ng-model="materi.nama" required="true" /></td>
+                        </tr>
+                        <tr>
+                            <td><button ng-click="simpanMateri()">Simpan</button></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br />
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Kode</th>
+                            <th>Nama</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="m in daftarMateri.content">
+                            <th>{{m.kode}}</th>
+                            <th>{{m.nama}}</th>
+                            <th><button ng-click="hapusMateri(m)">Hapus</button></th>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
         </div>
-
-        <div ng-controller="MateriController">
-            <table border="1">
-                <tbody>
-                    <tr>
-                        <td>Kode Materi :</td>
-                        <td><input type="text" ng-model="materi.kode" required="true" /></td>
-                    </tr>
-                    <tr>
-                        <td>Nama Materi</td>
-                        <td><input type="text" ng-model="materi.nama" required="true" /></td>
-                    </tr>
-                    <tr>
-                        <td><button ng-click="simpanMateri()">Simpan</button></td>
-                        <td></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <br />
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Kode</th>
-                        <th>Nama</th>
-                        <th>&nbsp;</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="m in daftarMateri.content">
-                        <th>{{m.kode}}</th>
-                        <th>{{m.nama}}</th>
-                        <th><button ng-click="hapusMateri(m)">Hapus</button></th>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
-
 
     </body>
 </html>

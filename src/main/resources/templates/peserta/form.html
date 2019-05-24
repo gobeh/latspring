@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Peserta</title>
-</head>
-<body>
-    <h1>Edit Peserta
-    </h1>
-    <form action="#" th:action="@{/peserta/form}" th:object="${peserta}" method="post">
-        <table>
-            <tbody>
-             <tr>
-                <td>Nama:</td>
-                <td><input type="text" th:field="*{nama}" /></td>
-                <td th:if="${#fields.hasErrors('nama')}" th:errors="*{nama}">Pesan Error</td>
-             </tr>
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Peserta</title>
+    </head>
+    <body>
+        <div th:fragment="content">
+            <h1>Edit Peserta
+            </h1>
+            
+            <form action="#" th:action="@{/peserta/form}" th:object="${peserta}" method="post" enctype="multipart/form-data">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Nama:</td>
+                            <td><input type="text" th:field="*{nama}" /></td>
+                            <td th:if="${#fields.hasErrors('nama')}" th:errors="*{nama}">Pesan Error</td>
+                        </tr>
 
-             <tr>
-                 <td>Email:</td>
-                 <td><input type="text" th:field="*{email}" /></td>
-                 <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Pesan Error</td>
-             </tr>
-             <tr>
-                 <td>Tanggal Lahir:</td>
-                 <td><input type="text" th:field="*{tanggalLahir}" /></td>
-                 <td th:if="${#fields.hasErrors('tanggalLahir')}" th:errors="*{tanggalLahir}">Pesan Error</td>
-             </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td><input type="text" th:field="*{email}" /></td>
+                            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Pesan Error</td>
+                        </tr>
+                        <tr>
+                            <td>Tanggal Lahir:</td>
+                            <td><input type="text" th:field="*{tanggalLahir}" /></td>
+                            <td th:if="${#fields.hasErrors('tanggalLahir')}" th:errors="*{tanggalLahir}">Pesan Error</td>
+                        </tr>
+                        <tr>
+                            <td>Upload Foto:</td>
+                            <td><input type="file" name="foto" /></td>
+                            <td>&nbsp;</td>
+                        </tr>
 
-             <tr>
-                 <td>&nbsp;</td>
-                 <td><input type="submit" value="Simpan"/></td>
-                 <td>&nbsp;</td>
-             </tr>
-            </tbody>
-        </table>
-    </form>
-</body>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><input type="submit" value="Simpan"/></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </body>
 </html>

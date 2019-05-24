@@ -1,7 +1,7 @@
 package com.sofwan.latspring.config;
 
-
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -14,5 +14,9 @@ public class KonfigurasiWeb implements WebMvcConfigurer {
         registry.addViewController("/materi/list").setViewName("/materi/list");
     }
 
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new ThymeleafLayoutInterceptor());
+    }
 
 }
