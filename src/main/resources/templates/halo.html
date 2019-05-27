@@ -1,40 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <meta charset="UTF-8">
         <title>TES THYMELEAF</title>
     </head>
     <body>
         <div th:fragment="content">
-            <link th:href="@{/css/dashboard.css}" rel="stylesheet">
-
-            <div class="container-fluid">
-                <div class="row">
-                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                        <div class="sidebar-sticky">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="#">
-                                        <span data-feather="home"></span>
-                                        Halo! <span sec:authentication="name"></span><span class="sr-only">(current)</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                                <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-            <script>
-                feather.replace()
-            </script>
-                </div>
-            </div>
             
-            <div sec:authorize="hasRole('ROLE_ADMIN')">
+                    <main role="main">
+                        Halo! <span <span sec:authentication="name"></span>
+                            <br />
+                            <span th:text="'Waktu saat ini : '+${Waktu}"></span>
+                            
+                    </main>
 
-                <span sec:authentication="name"></span>
-                <h1 th:text="'waktu saat ini : '+${Waktu}">tes</h1>
-                <h1 th:text="'nama : '+${Nama}">tes</h1>
-            </div>
+             
+
+
 
 
         </div>

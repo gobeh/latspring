@@ -13,7 +13,8 @@ public class KonfigurasiWeb implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/error").setViewName("error");
-        //registry.addViewController("/materi/list").setViewName("/materi/list");
+        registry.addViewController("/materi/list").setViewName("/materi/list");
+        registry.addViewController("/users/list").setViewName("/users/list");
     }
 
     @Override

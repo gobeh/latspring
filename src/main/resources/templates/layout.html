@@ -32,10 +32,10 @@
                     <li class="nav-item text-nowrap">
                         <div sec:authorize="isAuthenticated()">
                             <form class="nav-link" name="f" th:action="@{/logout}" method="POST">
-                              <input type="submit" value="Logout" />
+                                <input type="submit" value="Logout" />
                             </form>
                         </div>
-                        
+
                     </li>
                 </ul>
 
@@ -43,7 +43,37 @@
 
             </div>
         </nav>
-        <main role="main">
+        <div class="container-fluid" sec:authorize="isAuthenticated()">
+            <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+            <div class="row">
+                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">
+                                    <span data-feather="home"></span>
+                                    Halo! <span sec:authentication="name"></span>
+                                    <span sec:authorize="hasRole('ROLE_ADMIN')">(Admin)</span>
+                                    <span sec:authorize="hasRole('ROLE_STAF')">(Staf)</span>
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a class="nav-link" th:href="@{/users/list}">
+                                    <span data-feather="users"></span>
+                                    Pengguna
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+                <script>
+                    feather.replace();
+                </script>
+            </div>
+        </div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="container" th:replace="${view} :: content">Ini content</div>
 
         </main>

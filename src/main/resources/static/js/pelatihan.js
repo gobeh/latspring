@@ -79,6 +79,59 @@ aplikasiPelatihan.controller('MateriController', function ($http, $scope){
     $scope.updateDataMateri();
 });
 
+aplikasiPelatihan.controller('UsersController', function ($http, $scope){
+    $scope.daftarUsers={};
+    
+    $scope.simpanMateri=function(){
+        $http.post('/api/users', $scope.materi).then(sukses, gagal);
+        
+        function sukses(response){
+            //alert('sukses');
+            $scope.updateDataUsers();
+                       
+        };
+        
+        function gagal(response){
+            alert('Error'+response);
+            console.log(response);
+        };
+        
+    };
+    
+    $scope.hapusUsers=function(x){
+        $http.delete('/api/users/'+x.id).then(sukses, gagal);
+                
+        function sukses(response){
+            //alert('sukses');
+            $scope.updateDataUsers();
+                       
+        };
+        
+        function gagal(response){
+            alert('Error'+response);
+            console.log(response);
+        };
+        
+    };
+    
+    $scope.updateDataUsers=function(){
+        $http.get('/api/users').then(sukses, gagal);
+      
+        function sukses(response){
+            //alert('sukses');
+            $scope.daftarUsers = response.data;
+            console.log($scope.daftarUsers);
+            
+            
+        };
+        
+        function gagal(response){
+            alert('Error'+response);
+        };
+    };
+    $scope.updateDataUsers();
+});
+
 
 
 
