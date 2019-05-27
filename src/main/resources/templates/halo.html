@@ -5,11 +5,39 @@
         <title>TES THYMELEAF</title>
     </head>
     <body>
-        <form name="f" th:action="@{/logout}" method="POST">
-            <input type="submit" value="Logout" />
-        </form>
-        <h1 th:text="'waktu saat ini : '+${Waktu}">tes</h1>
-        <h1 th:text="'nama : '+${Nama}">tes</h1>
+        <div th:fragment="content">
+            <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                        <div class="sidebar-sticky">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">
+                                        <span data-feather="home"></span>
+                                        Halo! <span sec:authentication="name"></span><span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                                <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+            <script>
+                feather.replace()
+            </script>
+                </div>
+            </div>
+            
+            <div sec:authorize="hasRole('ROLE_ADMIN')">
+
+                <span sec:authentication="name"></span>
+                <h1 th:text="'waktu saat ini : '+${Waktu}">tes</h1>
+                <h1 th:text="'nama : '+${Nama}">tes</h1>
+            </div>
+
+
+        </div>
 
     </body>
 </html>

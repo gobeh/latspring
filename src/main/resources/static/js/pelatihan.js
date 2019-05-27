@@ -6,6 +6,10 @@ aplikasiPelatihan.controller('HaloController', function ($scope) {
         'tesalan@mail.com',
         'tes2wan@mail.com'
     ];
+    
+    $scope.kembali = function(){
+        window.history.back();
+    };
 
     $scope.tambahEmail = function () {
         $scope.daftarEmail.push($scope.email);

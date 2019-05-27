@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>ERROR 404</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <div th:fragment="content">
+        <body data-ng-app="aplikasiPelatihan">
+
+            <script th:src="@{/js/angular.min.js}"></script>
+            <script th:src="@{/js/pelatihan.js}"></script>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="error-template">
+                            <h1>
+                                Oops!</h1>
+                            <h2>
+                                404 Not Found</h2>
+                            <div class="error-details">
+                                Maaf Halaman tidak ditemukan!
+                            </div>
+                            <div class="error-actions" ng-controller="HaloController">
+                                <button class="btn btn-primary btn-lg" ng-click="kembali()"><span class="glyphicon glyphicon-home"></span>
+                                    Kembali </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</body>
+
+
+</html>

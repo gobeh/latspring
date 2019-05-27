@@ -7,9 +7,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import javax.sql.DataSource;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfFilter;
+import org.thymeleaf.spring5.SpringTemplateEngine;
 
 @Configuration
 @EnableWebSecurity
@@ -45,7 +47,7 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/css/**", "/js/**").permitAll()
+                .antMatchers("/css/**", "/js/**","/login").permitAll()
                 .antMatchers("/halo").hasAnyRole("ADMIN", "STAF")
                 .antMatchers("/peserta/form").hasRole("ADMIN")
                 .antMatchers("/peserta/list").hasAnyRole("ADMIN", "STAF")
@@ -57,10 +59,11 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/halo", false)
                 .and()
                 .logout()
+                .logoutSuccessUrl("/login?logout")
                 .and()
                 .addFilterAfter(new CsrfAttributeToCookieFilter(), CsrfFilter.class)
                 .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and();
-                //.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+        //.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }
 }
