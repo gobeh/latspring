@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Lihat Peserta</title>
-</head>
-<body>
-    <div th:fragment="content">
-    <h1>Lihat Peserta
-    </h1>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lihat Peserta</title>
+    </head>
+    <body>
+        <div th:fragment="content">
+            <div class="card">
+                <h5 class="card-header">Lihat Peserta</h5>
 
-        <table>
-            <tbody>
-            <tr>
-                <td>Nama:</td>
-                <td th:text="${nama}"> </td>
+                <div class="card-body">
 
-            </tr>
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <td>Nama:</td>
+                                <td th:text="${nama}"> </td>
 
-            <tr>
-                <td>Email:</td>
-                <td th:text="${email}"></td>
+                            </tr>
 
-            </tr>
-            <tr>
-                <td>Tanggal Lahir:</td>
-                <td th:text="${tanggalLahir}"></td>
-            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td th:text="${email}"></td>
 
-            </tbody>
-        </table>
-    </div>
+                            </tr>
+                            <tr>
+                                <td>Tanggal Lahir:</td>
+                                <td th:text="${tanggalLahir}"></td>
+                            </tr>
 
-</body>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </body>
 </html>

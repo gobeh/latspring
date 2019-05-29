@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" th:href="@{/halo}">Home <span class="sr-only">(current)</span></a>
                     </li>
 
                 </ul>
@@ -43,6 +43,7 @@
 
             </div>
         </nav>
+        
         <div class="container-fluid" sec:authorize="isAuthenticated()">
             <link th:href="@{/css/dashboard.css}" rel="stylesheet">
             <div class="row">
@@ -64,6 +65,18 @@
                                     Pengguna
                                 </a>
                             </li>
+                            <li class="nav-item" sec:authorize="hasRole('ROLE_STAF')">
+                                <a class="nav-link" th:href="@{/materi/list}">
+                                    <span data-feather="book"></span>
+                                    Materi
+                                </a>
+                            </li>
+                            <li class="nav-item" sec:authorize="hasRole('ROLE_STAF')">
+                                <a class="nav-link" th:href="@{/peserta/list}">
+                                    <span data-feather="users"></span>
+                                    Peserta
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -73,9 +86,8 @@
                 </script>
             </div>
         </div>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-2">
             <div class="container" th:replace="${view} :: content">Ini content</div>
-
         </main>
 
 

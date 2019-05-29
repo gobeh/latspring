@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Daftar Peserta</title>
-</head>
-<body>
-    <div th:fragment="content">
-    <h1>Daftar Peserta</h1>
-    <table class="table table-condensed table-striped table-hover">
-        <thead>
-            <tr>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>Tanggal Lahir</th>
-                <td>&nbsp;</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="p : ${daftarPeserta}">
-                <td th:text="${p.nama}">Nama</td>
-                <td th:text="${p.email}">Email</td>
-                <td th:text="${p.tanggalLahir}">Tanggal Lahir</td>
-                <td>
-                    <a href="form.html" th:href="@{/peserta/form(id=${p.id})}">
-                        edit</a> |
-                    <a href="view.html" th:href="@{/peserta/view(id=${p.id})}">
-                        lihat</a> |
-                    <a href="hapus.html" th:href="@{/peserta/hapus(id=${p.id})}">
-                        hapus</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    </div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Daftar Peserta</title>
+    </head>
+    <body th:fragment="content">
+        <div>
+            <div class="card">
+                <h5 class="card-header">Daftar Peserta</h5>
+
+                <div class="card-body">
+
+                    <table class="table table-condensed table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>Tanggal Lahir</th>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="p : ${daftarPeserta}">
+                                <td th:text="${p.nama}">Nama</td>
+                                <td th:text="${p.email}">Email</td>
+                                <td th:text="${p.tanggalLahir}">Tanggal Lahir</td>
+                                <td>
+                                    <a href="form.html" th:href="@{/peserta/form(id=${p.id})}">
+                                        edit</a> |
+                                    <a href="view.html" th:href="@{/peserta/view(id=${p.id})}">
+                                        lihat</a> |
+                                    <a href="hapus.html" th:href="@{/peserta/hapus(id=${p.id})}">
+                                        hapus</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
